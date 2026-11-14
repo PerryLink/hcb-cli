@@ -13,4 +13,4 @@ Output: declared range, compatibility vs latest host, ENTRY/FLOW/BOOST, risk, ga
 
 ## Status
 
-Experimental. The canonical data is [dsh-compat-baseline](https://github.com/PerryLink/dsh-compat-baseline). This CLI is not published to npm yet.
+Experimental. The canonical data is [dsh-compat-baseline](https://github.com/PerryLink/hcb). This CLI is not published to npm yet.
