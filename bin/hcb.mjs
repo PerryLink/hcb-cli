@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-const MATRIX = 'https://raw.githubusercontent.com/PerryLink/dsh-compat-baseline/main/data/matrix.json';
+const URLS = ['https://raw.githubusercontent.com/PerryLink/dsh-compat-baseline/main/data/matrix.json','https://perrylink.github.io/dsh-compat-baseline/data/matrix.json'];
 const [, , cmd, pkg] = process.argv;
 if (cmd !== 'check' || !pkg) { console.error('usage: hcb check <npm-package>'); process.exit(2); }
-const res = await fetch(MATRIX);
-if (!res.ok) { console.error('failed to fetch matrix:', res.status); process.exit(3); }
-const d = await res.json();
+let d = null;
+for (const u of URLS) { try { const r = await fetch(u, { signal: AbortSignal.timeout(8000) }); if (r.ok) { d = await r.json(); break; } } catch {} }
+if (!d) { console.error('failed to fetch matrix'); process.exit(3); }
 const row = d.rows.find(r => r.name === pkg);
 if (!row) { console.error(pkg + ' not in HCB; add it to data/plugins.seed.json'); process.exit(2); }
 const host = d.latestHost;
