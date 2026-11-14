@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const URLS = ['https://raw.githubusercontent.com/PerryLink/dsh-compat-baseline/main/data/matrix.json','https://perrylink.github.io/dsh-compat-baseline/data/matrix.json'];
+const URLS = ['https://raw.githubusercontent.com/PerryLink/hcb/main/data/matrix.json','https://perrylink.github.io/hcb/data/matrix.json'];
 const [, , cmd, pkg] = process.argv;
 if (cmd !== 'check' || !pkg) { console.error('usage: hcb check <npm-package>'); process.exit(2); }
 let d = null;
