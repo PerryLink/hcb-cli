@@ -1,0 +1,10 @@
+{
+  "name": "hcb-cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "hcb": "bin/hcb.mjs"
+  },
+  "license": "MIT"
+}
